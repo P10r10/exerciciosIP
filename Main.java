@@ -52,6 +52,7 @@ repetido. Faça de duas maneiras diferentes, uma delas usando a função da alí
         System.out.println("countLower: " + countLower(array));
         System.out.print("onlyLower: ");
         displayArray(onlyLower(array));
+        //continue here
 
     }
 }
