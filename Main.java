@@ -39,10 +39,10 @@ minúsculas a matriz contém. De preferência use a função da alínea B.*/
         return count;
     }
 
-/*E. Defina uma função que dados um carácter e um vetor de caracteres, devolva quantas
-vezes o carácter aparece no vector.*/
+/*E. Defina uma função que dados um carácter e um vetor de caracteres, devolva
+quantas vezes o carácter aparece no vector.*/
 
- static int charInVector(char c, char[] v){
+	static int charInVector(char c, char[] v){
 		int count = 0;
         for (int i = 0; i < v.length; i++)
 			if (v[i] == c)
@@ -53,7 +53,22 @@ vezes o carácter aparece no vector.*/
 /*F. Defina uma função que dado um vetor de caracteres, devolva se existe algum
 carácter repetido. Faça de duas maneiras diferentes, uma delas usando a função
 da alínea E.*/
-//continue HERE!
+
+	static boolean hasRepeat(char[] v){
+		for (int i = 0; i < v.length; i++)
+			for (int j = i + 1; j < v.length; j++)
+				if (v[i] == v[j])
+					return true;
+		return false;
+	}
+
+	static boolean hasRepeat2(char[] v){
+		for (int i = 0; i < v.length; i++)
+			if (charInVector(v[i], v) != 1){
+				return true;
+			}
+		return false;
+	}
 
 /*auxiliary*/ 
     static void displayArray(char[] v){
@@ -65,7 +80,7 @@ da alínea E.*/
         Point myPoint = new Point(10, 15);
         System.out.println("getX: " + myPoint.getX());
         System.out.println("islower: " + isLower('y'));
-        char[] array = {'a', 'B', 'c', 'D', 'e', 'F', 'g', 'c'};
+        char[] array = {'a', 'B', 'c', 'D', 'e', 'F', 'g', 'x', 'w'};
         System.out.println("countLower: " + countLower(array));
         System.out.print("onlyLower: ");
         displayArray(onlyLower(array));
@@ -73,7 +88,9 @@ da alínea E.*/
 			   			   {'D', 'e', 'X'},
 						   {'F', 's', 'g', 'R', 'v',}};
         System.out.println("\nlowerInMatrix: " + lowerInMatrix(matrix));
-        System.out.print("charInVector: " + charInVector('c', array));
+        System.out.println("charInVector: " + charInVector('c', array));
+        System.out.println("hasRepeat: " + hasRepeat(array));
+        System.out.println("hasRepeat2: " + hasRepeat2(array));
 				
     }
 }
