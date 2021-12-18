@@ -32,13 +32,30 @@ apenas com as letras minúsculas.*/
 /*D.Defina uma função que dada uma matriz de caracteres, devolva quantas letras
 minúsculas a matriz contém. De preferência use a função da alínea B.*/
 
+    static int lowerInMatrix(char[][] m){
+		int count = 0;
+        for (int i = 0; i < m.length; i++)
+				count += countLower(m[i]);
+        return count;
+    }
 
 /*E. Defina uma função que dados um carácter e um vetor de caracteres, devolva quantas
-vezes o carcácter aparece no vector.
+vezes o carácter aparece no vector.*/
 
-F. Defina uma função que dado um vetor de caracteres, devolva se existe algum carácter
-repetido. Faça de duas maneiras diferentes, uma delas usando a função da alínea E. */
+ static int charInVector(char c, char[] v){
+		int count = 0;
+        for (int i = 0; i < v.length; i++)
+			if (v[i] == c)
+				count ++;
+        return count;
+    }
 
+/*F. Defina uma função que dado um vetor de caracteres, devolva se existe algum
+carácter repetido. Faça de duas maneiras diferentes, uma delas usando a função
+da alínea E.*/
+//continue HERE!
+
+/*auxiliary*/ 
     static void displayArray(char[] v){
         for (int i = 0; i < v.length; i++)
             System.out.print(v[i]);
@@ -48,12 +65,16 @@ repetido. Faça de duas maneiras diferentes, uma delas usando a função da alí
         Point myPoint = new Point(10, 15);
         System.out.println("getX: " + myPoint.getX());
         System.out.println("islower: " + isLower('y'));
-        char[] array = {'a', 'B', 'c', 'D', 'e', 'F', 'g'};
+        char[] array = {'a', 'B', 'c', 'D', 'e', 'F', 'g', 'c'};
         System.out.println("countLower: " + countLower(array));
         System.out.print("onlyLower: ");
         displayArray(onlyLower(array));
-        //continue here
-
+        char[][] matrix = {{'X', 'B', 'c', 'a'},
+			   			   {'D', 'e', 'X'},
+						   {'F', 's', 'g', 'R', 'v',}};
+        System.out.println("\nlowerInMatrix: " + lowerInMatrix(matrix));
+        System.out.print("charInVector: " + charInVector('c', array));
+				
     }
 }
 
