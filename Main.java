@@ -69,6 +69,15 @@ da alínea E.*/
 			}
 		return false;
 	}
+/*G. Defina uma função que dada uma letra minúscula, devolva a correspondente
+maiúscula. Se a função receber um carácter que não é uma letra minúscula,
+deve devolver o carácter recebido.*/
+
+    static char toUpper(char c){
+        if (isLower(c))
+            c -= 32;
+        return c;
+    }
 
 /*auxiliary*/ 
     static void displayArray(char[] v){
@@ -91,6 +100,8 @@ da alínea E.*/
         System.out.println("charInVector: " + charInVector('c', array));
         System.out.println("hasRepeat: " + hasRepeat(array));
         System.out.println("hasRepeat2: " + hasRepeat2(array));
+        System.out.println("toUpper: " + toUpper('a') + toUpper('%')
+        + toUpper('C') + toUpper('w') +toUpper('!'));
 				
     }
 }
