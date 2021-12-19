@@ -88,17 +88,56 @@ cada letra minúscula nesse vetor na maiúscula correspondente.*/
             v[i] = toUpper(v[i]);
     }
 
+/*I. Defina um procedimento que recebe uma matriz de caracteres e converte
+cada letra minúscula dessa matriz na correspondente maiúscula. Faça de duas maneiras
+diferentes, uma delas usando o procedimento da alínea H.*/
+
+    static void matrixToUpper(char[][] m){
+        for (int i = 0; i < m.length; i++)
+            for (int j = 0; j < m[i].length; j++)
+                m[i][j] = toUpper(m[i][j]);
+    }
+
+    static void matrixToUpper2(char[][] m){
+        for (int i = 0; i < m.length; i++)
+            vectorToUpper(m[i]);
+    }
+
+/*J. Defina um procedimento que, dado um vetor de caracteres e dois índices, a e b,
+coloque, caso ambas as posições contenham letras minúsculas, as duas letras
+existentes por ordem alfabética.*/
+
+    static void swapLowerAt(char[] v, int a, int b){
+        if (isLower(v[a]) && isLower(v[b]) && v[b] < v[a]){
+            char tmp = v[a];
+            v[a] = v[b];
+            v[b] = tmp;
+        }
+    }
+
+/*K. Defina um procedimento que dado um vetor de caracteres coloque na primeira posição
+a menor letra minúscula (por ordem alfabética). Faça pelos menos de duas maneiras
+diferentes, uma delas usando a função da alínea J.*/
+
+/*L. Defina um procedimento que dado um vector de caracteres ordene o seu conteúdo.*/
+
 /*auxiliary*/ 
     static void displayArray(char[] v){
         for (int i = 0; i < v.length; i++)
             System.out.print(v[i]);
+        System.out.println();
+    }
+
+    static void displayMatrix(char[][] m){
+        for (int i = 0; i < m.length; i++)
+            displayArray(m[i]);
     }
 
     public static void main(String[] args){
         Point myPoint = new Point(10, 15);
         System.out.println("getX: " + myPoint.getX());
         System.out.println("islower: " + isLower('y'));
-        char[] array = {'a', 'B', 'c', 'D', 'e', 'F', 'g', 'x', 'w'};
+        char[] array = {'a', 'B', 'z', 'D', 'e', 'F', 'g', 'x', 'w'};
         System.out.println("countLower: " + countLower(array));
         System.out.print("onlyLower: ");
         displayArray(onlyLower(array));
@@ -111,10 +150,18 @@ cada letra minúscula nesse vetor na maiúscula correspondente.*/
         System.out.println("hasRepeat2: " + hasRepeat2(array));
         System.out.println("toUpper: " + toUpper('a') + toUpper('%')
         + toUpper('C') + toUpper('w') +toUpper('!'));
-        System.out.print("vecToUpper: ");
-        vectorToUpper(array);
+//        System.out.print("vecToUpper: ");
+//        vectorToUpper(array);
+//        displayArray(array);
+        System.out.println("matrixToUpper: ");
+        matrixToUpper(matrix);
+        displayMatrix(matrix);
+        System.out.println("swapLowerAt: ");
+        displayArray(array);
+        swapLowerAt(array, 2, 8);
         displayArray(array);
 
+//char[] array = {'a', 'B', 'z', 'D', 'e', 'F', 'g', 'x', 'w'};
     }
 }
 
