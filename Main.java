@@ -69,6 +69,7 @@ da alínea E.*/
 			}
 		return false;
 	}
+
 /*G. Defina uma função que dada uma letra minúscula, devolva a correspondente
 maiúscula. Se a função receber um carácter que não é uma letra minúscula,
 deve devolver o carácter recebido.*/
@@ -77,6 +78,14 @@ deve devolver o carácter recebido.*/
         if (isLower(c))
             c -= 32;
         return c;
+    }
+
+/*H. Defina um procedimento que receba um vetor de caracteres e converta
+cada letra minúscula nesse vetor na maiúscula correspondente.*/
+
+    static void vectorToUpper(char[] v){
+        for (int i = 0; i < v.length; i++)
+            v[i] = toUpper(v[i]);
     }
 
 /*auxiliary*/ 
@@ -102,7 +111,10 @@ deve devolver o carácter recebido.*/
         System.out.println("hasRepeat2: " + hasRepeat2(array));
         System.out.println("toUpper: " + toUpper('a') + toUpper('%')
         + toUpper('C') + toUpper('w') +toUpper('!'));
-				
+        System.out.print("vecToUpper: ");
+        vectorToUpper(array);
+        displayArray(array);
+
     }
 }
 
