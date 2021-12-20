@@ -119,6 +119,14 @@ existentes por ordem alfabética.*/
 a menor letra minúscula (por ordem alfabética). Faça pelos menos de duas maneiras
 diferentes, uma delas usando a função da alínea J.*/
 
+    static void lowerToIndex0(char[] v){
+        for (int i = 1; i < v.length; i++)
+            swapLowerAt(v, 0, i);
+    }
+
+    static void lowerToIndex0_V2(char[] v){
+    }
+
 /*L. Defina um procedimento que dado um vector de caracteres ordene o seu conteúdo.*/
 
 /*auxiliary*/ 
@@ -137,7 +145,7 @@ diferentes, uma delas usando a função da alínea J.*/
         Point myPoint = new Point(10, 15);
         System.out.println("getX: " + myPoint.getX());
         System.out.println("islower: " + isLower('y'));
-        char[] array = {'a', 'B', 'z', 'D', 'e', 'F', 'g', 'x', 'w'};
+        char[] array = {'x', 'B', 'z', 'D', 'e', 'F', 'g', 'a', 'w'};
         System.out.println("countLower: " + countLower(array));
         System.out.print("onlyLower: ");
         displayArray(onlyLower(array));
@@ -160,8 +168,10 @@ diferentes, uma delas usando a função da alínea J.*/
         displayArray(array);
         swapLowerAt(array, 2, 8);
         displayArray(array);
+        System.out.println("lowerToIndex0: ");
+        lowerToIndex0(array);
+        displayArray(array);
 
-//char[] array = {'a', 'B', 'z', 'D', 'e', 'F', 'g', 'x', 'w'};
     }
 }
 
