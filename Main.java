@@ -154,6 +154,14 @@ diferentes, uma delas usando a função da alínea J.*/
         res = v;
         return res;
     }
+/*A. Defina uma função static char complementoDeMinúscula(char c) que dada
+uma letra minúscula, devolva o seu complemento. Se a função receber um carácter
+que não é uma letra minúscula, deve devolver o carácter recebido.
+complementoDeMinúscula(‘a’) → ‘z’
+complementoDeMinúscula(‘b’) → ‘y’
+complementoDeMinúscula(‘c’) → ‘x’
+complementoDeMinúscula(‘f’) → ‘u’
+complementoDeMinúscula(‘%’) → ‘%’*/
 
 /*auxiliary*/
 
