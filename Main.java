@@ -141,7 +141,22 @@ diferentes, uma delas usando a função da alínea J.*/
 
 /*L. Defina um procedimento que dado um vector de caracteres ordene o seu conteúdo.*/
 
-/*auxiliary*/ 
+    static char[] sortArray(char[] v){
+        char[] res = new char[v.length];
+        for (int i = 0; i < v.length - 1; i++)
+            for (int j = i + 1; j < v.length; j++){
+                if (v[i] > v[j]){
+                    char tmp = v[i];
+                    v[i] = v[j];
+                    v[j] = tmp;
+                }
+            }
+        res = v;
+        return res;
+    }
+
+/*auxiliary*/
+
     static void displayArray(char[] v){
         for (int i = 0; i < v.length; i++)
             System.out.print(v[i]);
@@ -184,6 +199,9 @@ diferentes, uma delas usando a função da alínea J.*/
 //        lowerToIndex0(array);
         lowerToIndex0_V2(array);
         displayArray(array);
+        System.out.println("sortArray: ");
+        displayArray(sortArray(array));
+
 
     }
 }
