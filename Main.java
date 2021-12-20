@@ -125,6 +125,18 @@ diferentes, uma delas usando a função da alínea J.*/
     }
 
     static void lowerToIndex0_V2(char[] v){
+        char minor = 'z' + 1, tmp;
+        int idx = v.length;
+        for (int i = 0; i < v.length; i++)
+            if (isLower(v[i]) && v[i] < minor){
+                idx = i;
+                minor = v[i];
+            }
+        if (idx < v.length){
+            tmp = v[0];
+            v[0] = minor;
+            v[idx] = tmp;
+        }
     }
 
 /*L. Defina um procedimento que dado um vector de caracteres ordene o seu conteúdo.*/
@@ -145,7 +157,7 @@ diferentes, uma delas usando a função da alínea J.*/
         Point myPoint = new Point(10, 15);
         System.out.println("getX: " + myPoint.getX());
         System.out.println("islower: " + isLower('y'));
-        char[] array = {'x', 'B', 'z', 'D', 'e', 'F', 'g', 'a', 'w'};
+        char[] array = {'x', 'B', 'z', 'D', 'e', 'b', 'F', 'g', 'b', 'Y', 'w'};
         System.out.println("countLower: " + countLower(array));
         System.out.print("onlyLower: ");
         displayArray(onlyLower(array));
@@ -164,12 +176,13 @@ diferentes, uma delas usando a função da alínea J.*/
         System.out.println("matrixToUpper: ");
         matrixToUpper(matrix);
         displayMatrix(matrix);
-        System.out.println("swapLowerAt: ");
-        displayArray(array);
-        swapLowerAt(array, 2, 8);
+//        System.out.println("swapLowerAt: ");
+//        displayArray(array);
+//        swapLowerAt(array, 2, 8);
         displayArray(array);
         System.out.println("lowerToIndex0: ");
-        lowerToIndex0(array);
+//        lowerToIndex0(array);
+        lowerToIndex0_V2(array);
         displayArray(array);
 
     }
