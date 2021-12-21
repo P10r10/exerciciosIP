@@ -154,14 +154,20 @@ diferentes, uma delas usando a função da alínea J.*/
         res = v;
         return res;
     }
-/*A. Defina uma função static char complementoDeMinúscula(char c) que dada
-uma letra minúscula, devolva o seu complemento. Se a função receber um carácter
-que não é uma letra minúscula, deve devolver o carácter recebido.
-complementoDeMinúscula(‘a’) → ‘z’
-complementoDeMinúscula(‘b’) → ‘y’
-complementoDeMinúscula(‘c’) → ‘x’
-complementoDeMinúscula(‘f’) → ‘u’
-complementoDeMinúscula(‘%’) → ‘%’*/
+
+/*A. Defina uma função que recebe uma letra minúscula e devolve o seu complemento.
+Se a função receber um carácter que não é uma letra minúscula, deve devolver o
+carácter recebido.*/
+
+    static char lowerToComplement(char c){
+        if (isLower(c))
+            return (char)('z' - c + 'a');
+        return c;
+    }
+
+/*B. Defina uma função que dado um vetor de caracteres, devolva verdadeiro caso o
+complemento do carácter na primeira posição do vetor exista numa das outras
+posições, e falso caso contrário.*/
 
 /*auxiliary*/
 
@@ -193,22 +199,26 @@ complementoDeMinúscula(‘%’) → ‘%’*/
         System.out.println("hasRepeat2: " + hasRepeat2(array));
         System.out.println("toUpper: " + toUpper('a') + toUpper('%')
         + toUpper('C') + toUpper('w') +toUpper('!'));
-//        System.out.print("vecToUpper: ");
-//        vectorToUpper(array);
-//        displayArray(array);
+        System.out.print("vecToUpper: ");
+        vectorToUpper(array);
+        displayArray(array);
         System.out.println("matrixToUpper: ");
         matrixToUpper(matrix);
         displayMatrix(matrix);
-//        System.out.println("swapLowerAt: ");
-//        displayArray(array);
-//        swapLowerAt(array, 2, 8);
+        System.out.println("swapLowerAt: ");
+        displayArray(array);
+        swapLowerAt(array, 2, 8);
         displayArray(array);
         System.out.println("lowerToIndex0: ");
-//        lowerToIndex0(array);
+        lowerToIndex0(array);
         lowerToIndex0_V2(array);
         displayArray(array);
         System.out.println("sortArray: ");
         displayArray(sortArray(array));
+        System.out.println("lowerToComplement:" + lowerToComplement('a'));
+        System.out.println("lowerToComplement:" + lowerToComplement('b'));
+        System.out.println("lowerToComplement:" + lowerToComplement('c'));
+        System.out.println("lowerToComplement:" + lowerToComplement('%'));
 
 
     }
