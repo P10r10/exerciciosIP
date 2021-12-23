@@ -8,7 +8,7 @@ class Main{
     }
 
 /*B.Defina uma função que dado um vetor de caracteres, devolva quantas letras
-minúsculas contém o vector.*/
+minúsculas contém o vector...*/
 
     static int countLower(char[] s) {
         int count = 0;
