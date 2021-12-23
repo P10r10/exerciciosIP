@@ -141,8 +141,7 @@ diferentes, uma delas usando a função da alínea J.*/
 
 /*L. Defina um procedimento que dado um vector de caracteres ordene o seu conteúdo.*/
 
-    static char[] sortArray(char[] v){
-        char[] res = new char[v.length];
+    static void sortArray(char[] v){
         for (int i = 0; i < v.length - 1; i++)
             for (int j = i + 1; j < v.length; j++){
                 if (v[i] > v[j]){
@@ -151,8 +150,6 @@ diferentes, uma delas usando a função da alínea J.*/
                     v[j] = tmp;
                 }
             }
-        res = v;
-        return res;
     }
 
 /*A. Defina uma função que recebe uma letra minúscula e devolve o seu complemento.
@@ -168,6 +165,25 @@ carácter recebido.*/
 /*B. Defina uma função que dado um vetor de caracteres, devolva verdadeiro caso o
 complemento do carácter na primeira posição do vetor exista numa das outras
 posições, e falso caso contrário.*/
+
+    static boolean isUpper(char c){
+        return c >= 'A' && c <= 'Z';
+    }
+
+    static char complement(char c){
+        if (isUpper(c))
+            return (char)('Z' - c + 'A');
+        if (isLower(c))
+            return (char)('z' - c + 'a');
+        return c;
+    }
+
+    static boolean complementExists(char[] v){
+        for (int i = 1; i < v.length; i++)
+            if (complement(v[0]) == v[i])
+                return true;
+        return false;
+    }
 
 /*auxiliary*/
 
@@ -186,7 +202,7 @@ posições, e falso caso contrário.*/
         Point myPoint = new Point(10, 15);
         System.out.println("getX: " + myPoint.getX());
         System.out.println("islower: " + isLower('y'));
-        char[] array = {'x', 'B', 'z', 'D', 'e', 'b', 'F', 'g', 'b', 'Y', 'w'};
+        char[] array = {'x', 'B', 'z', 'D', 'e', 'b', 'F', 'g', 'b', 'x', 'w'};
         System.out.println("countLower: " + countLower(array));
         System.out.print("onlyLower: ");
         displayArray(onlyLower(array));
@@ -205,6 +221,9 @@ posições, e falso caso contrário.*/
         System.out.println("matrixToUpper: ");
         matrixToUpper(matrix);
         displayMatrix(matrix);
+        System.out.println("matrixToUpper2: ");
+        matrixToUpper2(matrix);
+        displayMatrix(matrix);
         System.out.println("swapLowerAt: ");
         displayArray(array);
         swapLowerAt(array, 2, 8);
@@ -214,11 +233,13 @@ posições, e falso caso contrário.*/
         lowerToIndex0_V2(array);
         displayArray(array);
         System.out.println("sortArray: ");
-        displayArray(sortArray(array));
+        sortArray(array);
+        displayArray(array);
         System.out.println("lowerToComplement:" + lowerToComplement('a'));
         System.out.println("lowerToComplement:" + lowerToComplement('b'));
         System.out.println("lowerToComplement:" + lowerToComplement('c'));
         System.out.println("lowerToComplement:" + lowerToComplement('%'));
+        System.out.println("complementExists:" + complementExists(array));
 
 
     }
