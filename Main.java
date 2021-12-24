@@ -185,7 +185,30 @@ posições, e falso caso contrário.*/
         return false;
     }
 
-/*auxiliary*/
+/*C. Defina uma função que dado um vetor de caracteres e um índice, devolva
+verdadeiro caso o complemento do carácter na posição indicada pelo índice
+exista numa das outras posições, e falso caso contrário.*/
+
+    static boolean complementExistsAt(char[] v, int idx){
+        for (int i = 0; i < v.length; i++) {
+            if (i == idx)
+                continue;
+            if (complement(v[idx]) == v[i])
+                return true;
+        }
+        return false;
+    }
+
+/*D. Resolva novamente a alínea B, mas use a função desenvolvida na alínea C*/
+
+//    static boolean complementExists_V2(char[] v){
+//        for (int i = 1; i < v.length; i++)
+//            if (complementExistsAt(v, 0))
+//                return true;
+//        return false;
+//    }
+
+    /*auxiliary*/
 
     static void displayArray(char[] v){
         for (int i = 0; i < v.length; i++)
@@ -240,6 +263,10 @@ posições, e falso caso contrário.*/
         System.out.println("lowerToComplement:" + lowerToComplement('c'));
         System.out.println("lowerToComplement:" + lowerToComplement('%'));
         System.out.println("complementExists:" + complementExists(array));
+        char[] array2 = {'x', 'B', 'z', 'D', 'e', 'b', 'F', 'g', 'b', 'x', 'w', 'c'};
+        System.out.println("complementExistsAt:" + complementExistsAt(array2, 0));
+        //complementExists_V2(array2);
+
 
 
     }
