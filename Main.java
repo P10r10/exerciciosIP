@@ -200,7 +200,7 @@ exista numa das outras posições, e falso caso contrário.*/
     }
 
 /*D. Resolva novamente a alínea B, mas use a função desenvolvida na alínea C*/
-
+//Continue here!
 //    static boolean complementExists_V2(char[] v){
 //        for (int i = 1; i < v.length; i++)
 //            if (complementExistsAt(v, 0))
@@ -266,9 +266,6 @@ exista numa das outras posições, e falso caso contrário.*/
         char[] array2 = {'x', 'B', 'z', 'D', 'e', 'b', 'F', 'g', 'b', 'x', 'w', 'c'};
         System.out.println("complementExistsAt:" + complementExistsAt(array2, 0));
         //complementExists_V2(array2);
-
-
-
     }
 }
 
