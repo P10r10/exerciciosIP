@@ -232,34 +232,51 @@ a) na segunda metade o complemento da primeira
     }
 
 /* b) na segunda metade o complemento por ordem inversa
-{‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘b’, ‘c’, ‘d’, ‘w’, ‘x’, ‘y’, ‘z’}*/
+{‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘b’, ‘c’, ‘d’, ‘w’, ‘x’, ‘y’, ‘z’} */
 
     static char[] complementInSecondHalfInverse(char[] v){
         char[] res = new char[2 * v.length];
-        for (int i = 0; i < res.length; i++) {
+        for (int i = 0; i < res.length; i++)
             if (i < res.length / 2)
                 res[i] = v[i];
             else
                 res[i] = complement(v[res.length - 1 - i]);
-        }
         return res;
     }
 
 /* c) cada carácter seguido do seu complemento
-{‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘z’, ‘b’, ‘y’, ‘c’, ‘x’, ‘d’, ‘w’}             */
+{‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘z’, ‘b’, ‘y’, ‘c’, ‘x’, ‘d’, ‘w’} */
 
     static char[] alternateComplement(char[] v){
         char[] res = new char[2 * v.length];
-//        for (int i = 0; i < res.length; i++) {
-//            if (i < res.length / 2)
-//                res[i] = v[i];
-//            else
-//                res[i] = complement(v[res.length - 1 - i]);
-//        }
+        for (int i = 0; i < res.length; i++)
+            if (i % 2 == 0)
+                res[i] = v[i / 2];
+            else
+                res[i] = complement(v[i / 2]);
         return res;
     }
 
-    /*auxiliary*/
+/*G. Defina uma função que dados o número de linhas e o número de colunas, devolva uma
+matriz com essas dimensões preenchida com letras minúsculas aleatórias.*/
+
+    static char[][] randomMatrix(int m, int n){
+        char[][] mat = new char[m][n];
+        for (int i = 0; i < mat.length; i++)
+            for (int j = 0; j < mat[i].length; j++)
+                mat[i][j] = (char)(Math.random() * 26 + 'a');
+        return mat;
+    }
+
+/*H. Defina uma função que dada uma matriz de caracteres, devolva uma nova matriz
+com o dobro das linhas, em que a cada linha da matriz original deve corresponder
+essa linha seguida de uma nova linha com o complemento de cada um dos caracteres
+dessa linha.*/
+
+/*I. Resolva novamente o exercício da alínea H, mas sem assumir que todas as linhas
+têm o mesmo número de elementos.*/
+
+/*auxiliary*/
 
     static void displayArray(char[] v){
         for (int i = 0; i < v.length; i++)
@@ -325,8 +342,10 @@ a) na segunda metade o complemento da primeira
         System.out.print("complementInSecondHalfInverse: ");
         char[] array5 = {'w', 'x', 'y', 'z'};
         displayArray(complementInSecondHalfInverse(array5));
+        System.out.print("alternateComplement: ");
+        displayArray(alternateComplement(array4));
+        System.out.println("randomMatrix: ");
+        displayMatrix(randomMatrix(5, 5));
 
     }
 }
-
-
