@@ -214,6 +214,26 @@ todos os caracteres tiverem o seu complemento no vector, e falso caso contrário
                 return false;
         return true;
     }
+/*F. Defina uma função que dado um vetor de caracteres, devolva um novo vector
+com o dobro do tamanho contendo:
+a. na segunda metade o complemento da primeira
+{‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘b’, ‘c’, ‘d’, ‘z’, ‘y’, ‘x’, ‘w’} */
+
+    static char[] invertComplement(char[] v){
+        char[] res = new char[2 * v.length];
+        for (int i = 0; i < res.length; i++) {
+            if (i < res.length / 2)
+                res[i] = v[i];
+            else
+                res[i] = complement(v[i - res.length / 2]);
+        }
+        return res;
+    }
+
+/*b. na segunda metade o complemento por ordem inversa
+{‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘b’, ‘c’, ‘d’, ‘w’, ‘x’, ‘y’, ‘z’}
+c. cada carácter seguido do seu complemento
+{‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘z’, ‘b’, ‘y’, ‘c’, ‘x’, ‘d’, ‘w’}             */
 
     /*auxiliary*/
 
@@ -273,8 +293,12 @@ todos os caracteres tiverem o seu complemento no vector, e falso caso contrário
         char[] array2 = {'x', 'B', 'z', 'D', 'e', 'b', 'F', 'g', 'b', 'x', 'w', 'c'};
         System.out.println("complementExistsAt:" + complementExistsAt(array, 0));
         System.out.println("complementExistsAt_V2:" + complementExists_V2(array2));
-        //CREATE TEST ARRAY
-        System.out.println("everyComplementExists:" + everyComplementExists(array));
+        char[] array3 = {'a', 'z', 'b', 'y'};
+        System.out.println("everyComplementExists:" + everyComplementExists(array3));
+        char[] array4 = {'a', 'b', 'C', 'd', 'E'};
+        System.out.print("invertComplement:");
+        displayArray(invertComplement(array4));
+
     }
 }
 
