@@ -273,8 +273,22 @@ com o dobro das linhas, em que a cada linha da matriz original deve corresponder
 essa linha seguida de uma nova linha com o complemento de cada um dos caracteres
 dessa linha.*/
 
+    static char[][] matrixWithComplements(char[][] m){
+        char[][] mat = new char[m.length][m[0].length];
+        for (int i = 0; i < m.length; i++)
+            mat[i] = complementInSecondHalf(m[i]);
+        return mat;
+    }
+
 /*I. Resolva novamente o exercício da alínea H, mas sem assumir que todas as linhas
 têm o mesmo número de elementos.*/
+
+    static char[][] matrixWithComplements_V2(char[][] m){
+        char[][] mat = new char[m.length][];
+        for (int i = 0; i < m.length; i++)
+            mat[i] = complementInSecondHalf(m[i]);
+        return mat;
+    }
 
 /*auxiliary*/
 
@@ -346,6 +360,15 @@ têm o mesmo número de elementos.*/
         displayArray(alternateComplement(array4));
         System.out.println("randomMatrix: ");
         displayMatrix(randomMatrix(5, 5));
-
+        char[][] matrix2 = {{'a', 'b', 'c'},
+                            {'b', 'c', 'd'},
+                            {'c', 'd', 'e'}};
+        System.out.println("matrixWithComplements: ");
+        displayMatrix(matrixWithComplements(matrix2));
+        char[][] matrix3 = {{'a'},
+                            {'a', 'b'},
+                            {'a', 'b', 'c'}};
+        System.out.println("matrixWithComplements_V2: ");
+        displayMatrix(matrixWithComplements_V2(matrix3));
     }
 }
