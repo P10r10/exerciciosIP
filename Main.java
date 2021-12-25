@@ -214,9 +214,10 @@ todos os caracteres tiverem o seu complemento no vector, e falso caso contrário
                 return false;
         return true;
     }
-/*F. Defina uma função que dado um vetor de caracteres, devolva um novo vector
-com o dobro do tamanho contendo:
-a. na segunda metade o complemento da primeira
+
+/*F. Defina uma função que recebe um vector de caracteres, e devolve um novo
+vector com o dobro do tamanho contendo:
+a) na segunda metade o complemento da primeira
 {‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘b’, ‘c’, ‘d’, ‘z’, ‘y’, ‘x’, ‘w’} */
 
     static char[] invertComplement(char[] v){
@@ -230,9 +231,10 @@ a. na segunda metade o complemento da primeira
         return res;
     }
 
-/*b. na segunda metade o complemento por ordem inversa
+/*b) na segunda metade o complemento por ordem inversa
 {‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘b’, ‘c’, ‘d’, ‘w’, ‘x’, ‘y’, ‘z’}
-c. cada carácter seguido do seu complemento
+
+c) cada carácter seguido do seu complemento
 {‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘z’, ‘b’, ‘y’, ‘c’, ‘x’, ‘d’, ‘w’}             */
 
     /*auxiliary*/
