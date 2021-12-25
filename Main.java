@@ -220,7 +220,7 @@ vector com o dobro do tamanho contendo:
 a) na segunda metade o complemento da primeira
 {‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘b’, ‘c’, ‘d’, ‘z’, ‘y’, ‘x’, ‘w’} */
 
-    static char[] invertComplement(char[] v){
+    static char[] complementInSecondHalf(char[] v) {
         char[] res = new char[2 * v.length];
         for (int i = 0; i < res.length; i++) {
             if (i < res.length / 2)
@@ -231,11 +231,33 @@ a) na segunda metade o complemento da primeira
         return res;
     }
 
-/*b) na segunda metade o complemento por ordem inversa
-{‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘b’, ‘c’, ‘d’, ‘w’, ‘x’, ‘y’, ‘z’}
+/* b) na segunda metade o complemento por ordem inversa
+{‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘b’, ‘c’, ‘d’, ‘w’, ‘x’, ‘y’, ‘z’}*/
 
-c) cada carácter seguido do seu complemento
+    static char[] complementInSecondHalfInverse(char[] v){
+        char[] res = new char[2 * v.length];
+        for (int i = 0; i < res.length; i++) {
+            if (i < res.length / 2)
+                res[i] = v[i];
+            else
+                res[i] = complement(v[res.length - 1 - i]);
+        }
+        return res;
+    }
+
+/* c) cada carácter seguido do seu complemento
 {‘a’, ‘b’, ‘c’, ‘d’} → {‘a’, ‘z’, ‘b’, ‘y’, ‘c’, ‘x’, ‘d’, ‘w’}             */
+
+    static char[] alternateComplement(char[] v){
+        char[] res = new char[2 * v.length];
+//        for (int i = 0; i < res.length; i++) {
+//            if (i < res.length / 2)
+//                res[i] = v[i];
+//            else
+//                res[i] = complement(v[res.length - 1 - i]);
+//        }
+        return res;
+    }
 
     /*auxiliary*/
 
@@ -261,7 +283,7 @@ c) cada carácter seguido do seu complemento
         char[][] matrix = {{'X', 'B', 'c', 'a'},
 			   			   {'D', 'e', 'X'},
 						   {'F', 's', 'g', 'R', 'v',}};
-        System.out.println("\nlowerInMatrix: " + lowerInMatrix(matrix));
+        System.out.println("lowerInMatrix: " + lowerInMatrix(matrix));
         System.out.println("charInVector: " + charInVector('c', array));
         System.out.println("hasRepeat: " + hasRepeat(array));
         System.out.println("hasRepeat2: " + hasRepeat2(array));
@@ -287,19 +309,22 @@ c) cada carácter seguido do seu complemento
         System.out.println("sortArray: ");
         sortArray(array);
         displayArray(array);
-        System.out.println("lowerToComplement:" + lowerToComplement('a'));
-        System.out.println("lowerToComplement:" + lowerToComplement('b'));
-        System.out.println("lowerToComplement:" + lowerToComplement('c'));
-        System.out.println("lowerToComplement:" + lowerToComplement('%'));
-        System.out.println("complementExists:" + complementExists(array));
+        System.out.println("lowerToComplement: " + lowerToComplement('a'));
+        System.out.println("lowerToComplement: " + lowerToComplement('b'));
+        System.out.println("lowerToComplement: " + lowerToComplement('c'));
+        System.out.println("lowerToComplement: " + lowerToComplement('%'));
+        System.out.println("complementExists: " + complementExists(array));
         char[] array2 = {'x', 'B', 'z', 'D', 'e', 'b', 'F', 'g', 'b', 'x', 'w', 'c'};
-        System.out.println("complementExistsAt:" + complementExistsAt(array, 0));
-        System.out.println("complementExistsAt_V2:" + complementExists_V2(array2));
+        System.out.println("complementExistsAt: " + complementExistsAt(array, 0));
+        System.out.println("complementExistsAt_V2: " + complementExists_V2(array2));
         char[] array3 = {'a', 'z', 'b', 'y'};
-        System.out.println("everyComplementExists:" + everyComplementExists(array3));
-        char[] array4 = {'a', 'b', 'C', 'd', 'E'};
-        System.out.print("invertComplement:");
-        displayArray(invertComplement(array4));
+        System.out.println("everyComplementExists: " + everyComplementExists(array3));
+        char[] array4 = {'a', 'b', 'C', 'd', 'E', 'f'};
+        System.out.print("complementInSecondHalf: ");
+        displayArray(complementInSecondHalf(array4));
+        System.out.print("complementInSecondHalfInverse: ");
+        char[] array5 = {'w', 'x', 'y', 'z'};
+        displayArray(complementInSecondHalfInverse(array5));
 
     }
 }
