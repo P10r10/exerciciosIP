@@ -200,13 +200,20 @@ exista numa das outras posições, e falso caso contrário.*/
     }
 
 /*D. Resolva novamente a alínea B, mas use a função desenvolvida na alínea C*/
-//Continue here!
-//    static boolean complementExists_V2(char[] v){
-//        for (int i = 1; i < v.length; i++)
-//            if (complementExistsAt(v, 0))
-//                return true;
-//        return false;
-//    }
+
+    static boolean complementExists_V2(char[] v){
+        return complementExistsAt(v, 0);
+    }
+
+/*E. Defina uma função que dado um vetor de caracteres, devolva verdadeiro se
+todos os caracteres tiverem o seu complemento no vector, e falso caso contrário.*/
+
+    static boolean everyComplementExists(char[] v){
+        for (int i = 0; i < v.length; i++)
+            if (!complementExistsAt(v, i))
+                return false;
+        return true;
+    }
 
     /*auxiliary*/
 
@@ -264,8 +271,10 @@ exista numa das outras posições, e falso caso contrário.*/
         System.out.println("lowerToComplement:" + lowerToComplement('%'));
         System.out.println("complementExists:" + complementExists(array));
         char[] array2 = {'x', 'B', 'z', 'D', 'e', 'b', 'F', 'g', 'b', 'x', 'w', 'c'};
-        System.out.println("complementExistsAt:" + complementExistsAt(array2, 0));
-        //complementExists_V2(array2);
+        System.out.println("complementExistsAt:" + complementExistsAt(array, 0));
+        System.out.println("complementExistsAt_V2:" + complementExists_V2(array2));
+        //CREATE TEST ARRAY
+        System.out.println("everyComplementExists:" + everyComplementExists(array));
     }
 }
 
